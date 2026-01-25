@@ -1,0 +1,32 @@
+cat <<EOF > .gitignore
+# --- Common / OS Files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+logs
+*.gz
+
+# --- Dependency Directories ---
+node_modules/
+**/node_modules/
+
+# --- Frontend (React) ---
+frontend/build/
+frontend/dist/
+frontend/.eslintcache
+
+# --- Backend (Node.js TypeScript) ---
+backend/dist/
+backend/out/
+backend/*.tsbuildinfo
+
+# --- Environment Variables ---
+.env
+.env.local
+**/.env*
+
+# --- IDE / Editors ---
+.vscode/
+.idea/
+EOF
