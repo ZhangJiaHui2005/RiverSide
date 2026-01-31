@@ -1,5 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import { pacifico } from "./(clerk)/layout";
+import { useRouter } from "next/navigation";
+import { Wifi, Utensils, Waves, Dumbbell, Car, MapPinned, WashingMachine, } from "lucide-react";
+
+
 
 const rooms = [
   {
@@ -19,8 +25,56 @@ const rooms = [
   },
 ];
 
+const services = [
+  {
+    icon: Wifi,
+    title: "Wifi miễn phí",
+    desc: "Kết nối internet tốc độ cao toàn bộ khách sạn",
+    slug: "wifi",
+    slugVi: "wifi-mien-phi",
+  },
+  {
+    icon:  Waves,
+    title: "Hồ bơi ngoài trời",
+    desc: "Không gian thư giãn với view sông mát mẻ",
+    slug: "pool",
+    slugVi: "ho-boi",
+  },
+  {
+    icon: Utensils,
+    title: "Phòng gym",
+    desc: "Trang thiết bị hiện đại, mở cửa 24/7",
+    slug: "gym",
+  },
+  {
+    icon: Dumbbell,
+    title: "Nhà hàng",
+    desc: "Ẩm thực đa dạng với đầu bếp chuyên nghiệp",
+    slug: "restaurant",
+  },
+  {
+  icon: Car,
+  title: "Bãi đỗ xe",
+  desc: "Bãi xe rộng rãi, an ninh 24/7",
+  slug: "parking",
+  },
+
+  {
+    title: "Tour du lịch",
+    desc: "Khám phá địa phương cùng hướng dẫn viên",
+    icon: MapPinned,
+    slug: "tour",
+  },
+  {
+    title: "Giặt ủi",
+    desc: "Nhanh chóng – tiện lợi",
+    icon: WashingMachine,
+    slug: "laundry",
+  },
+];
+
 export default function Home() {
-  
+  const router = useRouter();
   return (
     <main>
       {/* { Hero } */}
@@ -109,6 +163,40 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="py-20 bg-white border-t border-slate-100">
+        <div className="max-w-7x1 mx-auto px-6">
+            <div className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Dịch vụ tiện ích
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Mang đến trải nghiệm nghỉ dưỡng trọn vẹn với hệ thống tiện ích hiện đại và đẳng cấp 
+              </p>
+            </div>  
+
+            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4 cursor-pointer">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+
+                return (
+                <div key={index} onClick={() => router.push(`/dich-vu/${service.slugVi}`)}
+                  className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-xl border 
+                border-slate-100 transition-all duration-300 hover:-translate-y-2">
+                <Icon className="w-10 h-10 text-sky-500 mx-auto mb-4" />
+                  <h3 className="font-semibold text-lg mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {service.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -3,6 +3,7 @@
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
+import { services } from "@/data/services";
 
 const activeClass =
   "text-primary border-b-2 border-primary pb-1";

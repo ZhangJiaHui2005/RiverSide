@@ -17,8 +17,8 @@ const nextConfig: NextConfig = {
         destination: "/facilities",
       },
       {
-        source: "/dich-vu",
-        destination: "/services",
+        source: '/dich-vu',
+        destination: '/services',
       },
       {
         source: "/dat-phong",
@@ -27,6 +27,10 @@ const nextConfig: NextConfig = {
       {
         source: "/lien-he",
         destination: "/contact",
+      },
+      {
+      source: '/dich-vu/:slug',
+      destination: '/services/:slug',
       },
     ];
   },
