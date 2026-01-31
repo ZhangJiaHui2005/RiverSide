@@ -5,8 +5,6 @@ import { pacifico } from "./(clerk)/layout";
 import { useRouter } from "next/navigation";
 import { Wifi, Utensils, Waves, Dumbbell, Car, MapPinned, WashingMachine, } from "lucide-react";
 
-
-
 const rooms = [
   {
     title: "Deluxe Room",
@@ -45,18 +43,21 @@ const services = [
     title: "Phòng gym",
     desc: "Trang thiết bị hiện đại, mở cửa 24/7",
     slug: "gym",
+    slugVi: "phong-gym",
   },
   {
     icon: Dumbbell,
     title: "Nhà hàng",
     desc: "Ẩm thực đa dạng với đầu bếp chuyên nghiệp",
     slug: "restaurant",
+    slugVi: "nha-hang",
   },
   {
-  icon: Car,
-  title: "Bãi đỗ xe",
-  desc: "Bãi xe rộng rãi, an ninh 24/7",
-  slug: "parking",
+    icon: Car,
+    title: "Bãi đỗ xe",
+    desc: "Bãi xe rộng rãi, an ninh 24/7",
+    slug: "parking",
+    slugVi: "bai-do-xe-hoi",
   },
 
   {
@@ -64,12 +65,14 @@ const services = [
     desc: "Khám phá địa phương cùng hướng dẫn viên",
     icon: MapPinned,
     slug: "tour",
+    slugVi: "tour-du-lich",
   },
   {
     title: "Giặt ủi",
     desc: "Nhanh chóng – tiện lợi",
     icon: WashingMachine,
     slug: "laundry",
+    slugVi: "giat-ui",
   },
 ];
 
@@ -107,27 +110,57 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section className="bg-white border-t border-slate-50/40 max-w-7x2 px-40 py-20 grid md:grid-cols-2 gap-12">
-        
+      <section className="mx-auto px-8 py-20 grid md:grid-cols-2 gap-12 items-center
+       bg-white border-t border-slate-200">
+  
+        {/* LEFT CONTENT */}
+        <div>
+          <p className="text-sm tracking-widest text-sky-600 font-semibold mb-3">
+            RIVERSIDE HOTEL
+          </p>
 
-          <div>
-            <h2 className="text-3xl font-bold mb-6">Về chúng tôi</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              RiverSide Hotel mang đến không gian <br />
-              nghỉ dưỡng sang trọng, yên tĩnh và tiện <br />
-              nghi, phù hợp cho gia đình, cặp đôi và <br />
-              doanh nhân.
-            </p>
-          </div>
-     
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-6">
+            Không gian nghỉ dưỡng bên sông <br />
+            dành cho những khoảnh khắc đáng nhớ
+          </h2>
 
-        <Image
-          src="/about.jpeg"
-          alt="About"
-          width={600}
-          height={400}
-          className="rounded-lg object-cover"
-        />
+          <p className="text-slate-600 text-lg mb-8 max-w-xl">
+            RiverSide Hotel được thiết kế để mang lại sự yên tĩnh, tiện nghi
+            và cảm giác thư giãn trọn vẹn cho mọi chuyến đi.
+          </p>
+
+          <ul className="space-y-4 mb-8">
+            <li className="flex items-center gap-3 text-slate-700">
+              <span className="text-green-500">🌿</span>
+              Vị trí ven sông yên bình
+            </li>
+            <li className="flex items-center gap-3 text-slate-700">
+              <span className="text-rose-500">🛏</span>
+              Không gian hiện đại, ấm cúng
+            </li>
+            <li className="flex items-center gap-3 text-slate-700">
+              <span className="text-sky-500">🤍</span>
+              Dịch vụ tận tâm, chuyên nghiệp
+            </li>
+          </ul>
+
+          <button
+            onClick={() => router.push("/gioi-thieu")}
+            className="inline-flex items-center gap-2 text-sky-600 font-semibold hover:gap-3 transition-all"
+          >
+            Khám phá câu chuyện của chúng tôi
+            <span>→</span>
+          </button>
+        </div>
+
+        {/* RIGHT IMAGE */}
+        <div className="relative">
+          <img
+            src="about.jpeg"
+            alt="Riverside Hotel"
+            className="rounded-2xl shadow-xl object-cover w-full h-[420]"
+          />
+        </div>
       </section>
 
       {/* ROOMS */}
@@ -144,7 +177,7 @@ export default function Home() {
                 className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer
                   hover:shadow-xl transition duration-300"
               >
-                <div className="relative h-[220px]">
+                <div className="relative h-[220]">
                   <Image
                     src={room.image}
                     alt={room.title}
