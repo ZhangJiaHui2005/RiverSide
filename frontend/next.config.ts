@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/gioi-thieu",
-        destination: "/about",
+        destination: "/info/about",
       },
       {
         source: "/phong-nghi",
@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/tien-ich",
-        destination: "/facilities",
+        destination: "/info/facilities",
       },
       {
         source: '/dich-vu',
@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/lien-he",
-        destination: "/contact",
+        destination: "/info/contact",
       },
       {
       source: '/dich-vu/:slug',

@@ -3,8 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
-import NavBar from "@/components/layout/Navbar";
-import Footer from "@/components/Footer";
 import SyncUser from "@/components/SyncUser";
 
 const geistSans = Geist({
@@ -29,23 +27,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <ClerkProvider>
-      <html lang="vi" suppressContentEditableWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <SyncUser />
-        <main className="flex flex-col min-h-screen bg-secondary">
-          <NavBar/>
-          <section className="flex-grow">
-            {children}
-            <Footer />
-          </section>
-        </main>
-      </body>
-    </html>
+      <html lang="vi">
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <SyncUser />
+          {children}
+        </body>
+      </html>
     </ClerkProvider>
   );
 }

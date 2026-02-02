@@ -1,7 +1,7 @@
 const Rooms = () => {
  return ( 
   <div>
-   <h1>hi</h1>
+   <h1>phòng ngủ</h1>
   </div>
   );
 }

@@ -1,7 +1,7 @@
 const Facilities = () => {
  return ( 
   <div>
-   <h1>hiiii</h1>
+   <h1>tiện ích</h1>
   </div>
   );
 }

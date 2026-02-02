@@ -1,5 +1,5 @@
 import { services } from "@/data/services";
-import { iconMap } from "../icon-map";
+import { iconMap } from "./icon-map";
 
 type Props = {
   params: Promise<{

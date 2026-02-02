@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { pacifico } from "./(clerk)/layout";
+import { pacifico } from "../(clerk)/layout";
 import { useRouter } from "next/navigation";
 import { Wifi, Utensils, Waves, Dumbbell, Car, MapPinned, WashingMachine, } from "lucide-react";
 
