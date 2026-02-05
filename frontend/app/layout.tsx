@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
-import SyncUser from "@/components/SyncUser";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +33,6 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="vi">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <SyncUser />
           {children}
         </body>
       </html>
