@@ -25,9 +25,14 @@ export default clerkMiddleware(async (auth, req) => {
       return session.redirectToSignIn();
     }
 
+    console.log("--- DEBUG MIDDLEWARE ---");
+    console.log("User ID:", session.userId);
+    console.log("Full Claims:", JSON.stringify(session.sessionClaims, null, 2));
+    console.log("Role lấy được:", session.sessionClaims?.metadata?.role);
+
     // Kiểm tra ROLE từ publicMetadata (đã cấu hình trong Clerk Dashboard)
     const role = session.sessionClaims?.metadata?.role;
-    
+
     if (role !== 'admin') {
       // Nếu không phải admin, đá về trang chủ
       return NextResponse.redirect(new URL('/', req.url));
