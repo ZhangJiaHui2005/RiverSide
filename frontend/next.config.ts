@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
         destination: "/rooms",
       },
       {
+        source: "/phong-nghi/:slug",
+        destination: "/rooms/:slug",
+      },
+      {
         source: "/tien-ich",
         destination: "/info/facilities",
       },
@@ -23,6 +27,10 @@ const nextConfig: NextConfig = {
       {
         source: "/dat-phong",
         destination: "/booking",
+      },
+      {
+        source: "/dat-phong-ngay",
+        destination: "/booking/booking_now"
       },
       {
         source: "/lien-he",

@@ -100,7 +100,8 @@ export default function Home() {
             <p className="text-lg md:text-xl mb-6">
               Trải nghiệm nghỉ dưỡng đẳng cấp bên dòng sông yên bình
             </p>
-            <button className="bg-gradient-to-r from-sky-400 to-sky-600 px-8 py-3 rounded-full
+            <button onClick={() => router.push("/dat-phong-ngay")}
+              className="bg-gradient-to-r from-sky-400 to-sky-600 px-8 py-3 rounded-full
                 text-white font-semibold shadow-lg shadow-sky-500/30 cursor-pointer transition-all duration-300
                 hover:from-sky-500 hover:to-sky-700 hover:shadow-sky-600/50 hover:scale-105">
               Đặt phòng ngay
